@@ -1,0 +1,55 @@
+@startuml
+class Model1 {
+    + Private
+    + Apps
+    + Accept
+    + Enroll
+    + F.Undergrad
+    + P.Undergrad
+    + Outstate
+    + S.F.Ratio
+    + perc.alumni
+}
+
+class Model2 {
+    + Private
+    + Apps
+    + Enroll
+    + F.Undergrad
+    + P.Undergrad
+    + Outstate
+    + perc.alumni
+}
+
+class Model3 {
+    + Private
+    + Apps
+    + Enroll
+    + F.Undergrad
+    + Outstate
+    + perc.alumni
+}
+
+class Model4 {
+    + Private
+    + Apps
+    + Enroll
+    + F.Undergrad
+    + Outstate
+    + perc.alumni
+}
+
+Model1 -[hidden]- Model2 : LRT\nChi-Square = -0.51185\np-value = 0.4743
+Model2 -[hidden]- Model3 : LRT\nChi-Square = -1.93\np-value = 0.1647
+Model3 -[hidden]- Model4 : LRT\nChi-Square = -3.34\np-value = 0.06
+
+note "Removed 'Accept'\nand performed LRT" as N1
+note "Removed 'P.Undergrad'\nand performed LRT" as N2
+note "Removed 'S.F.Ratio'\nand performed LRT" as N3
+note "Retained Model 4\nas final model" as N4
+
+Model1 -- N1
+Model2 -- N2
+Model3 -- N3
+Model4 -- N4
+@enduml
